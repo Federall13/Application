@@ -1,15 +1,14 @@
 
-import java.net.URL;
 import java.sql.*;
 
 public class Connector {
     private Connection connection = null;
     private final String URL = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false ";
+    private final String USERNAME = "root";
+    private final String PASSWORD = "18111992";
 
 
-    public connection getConneсtion() throws SQLException {
-        String USERNAME = "root";
-        String PASSWORD = "18111992";
+    public Connection getConneсtion() throws SQLException {
 
         try {
             System.out.println("Устанавливаем соединение с базой");
@@ -22,7 +21,10 @@ public class Connector {
             connection.close();
             System.out.println("Закрыли соединение с базой");
         }
-    }return ;
+        return connection;
+    }
 
 }
+
+
 
