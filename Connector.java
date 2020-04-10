@@ -7,9 +7,10 @@ public class Connector {
 
     public Connection getConneсtion() throws SQLException {
         try {
-            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             System.out.println("Устанавливаем соединение с базой");
-           
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            
+
 
         } catch (Exception e) {
             System.out.println("Соединение не удалось получить");
