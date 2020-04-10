@@ -1,12 +1,13 @@
 
+import java.net.URL;
 import java.sql.*;
 
 public class Connector {
+    private Connection connection = null;
+    private final String URL = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false ";
 
 
-    public String getConnector() throws SQLException {
-        Connection connection = null;
-        String URL = "jdbc:mysql://localhost:3306/mydbtest?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false ";
+    public URL getConneсtion() throws SQLException {
         String USERNAME = "root";
         String PASSWORD = "18111992";
 
@@ -14,17 +15,7 @@ public class Connector {
             System.out.println("Устанавливаем соединение с базой");
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user ");
-
-            ResultSet result = preparedStatement.executeQuery();
-
-            int columns = result.getMetaData().getColumnCount();
-            while (result.next()) {
-                for (int i = 1; i <= columns; i++) {
-                    System.out.print(result.getString(i) + "\t");
-                }
-                System.out.println();
-            }
+            PreparedStatement preparedStatement = connection.prepareStatement();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,13 +23,7 @@ public class Connector {
             connection.close();
             System.out.println("Закрыли соединение с базой");
         }
-
-
-        return  getConnector();
-    }
+    }return URL;
 
 }
-
-
-
 
