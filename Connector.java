@@ -10,8 +10,6 @@ public class Connector {
             System.out.println("Устанавливаем соединение с базой");
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             
-
-
         } catch (Exception e) {
             System.out.println("Соединение не удалось получить");
             return null;
