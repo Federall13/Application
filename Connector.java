@@ -1,3 +1,4 @@
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.sql.*;
 
@@ -7,24 +8,16 @@ public class Connector {
     private final String USERNAME = "root";
     private final String PASSWORD = "18111992";
 
-
     public Connection getConneсtion() throws SQLException {
 
         try {
             System.out.println("Устанавливаем соединение с базой");
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
-
         } catch (Exception e) {
+            System.out.println("Соединение не удалось получить");
             e.printStackTrace();
-        } finally {
-            connection.close();
-            System.out.println("Закрыли соединение с базой");
-        }
+        } 
         return connection;
     }
-
 }
-
-
-
