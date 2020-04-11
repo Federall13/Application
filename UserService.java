@@ -1,19 +1,17 @@
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserService {
 
-    public void addUser() throws SQLException {
+    public static void addUser() throws SQLException {
         Connector connector = new Connector();
-        try {
-            connector.getConneсtion().prepareStatement("select * from user");
+        Connection cout =  connector.getConneсtion();
+      PreparedStatement preparedStatement = cout.prepareStatement("INSERT INTO user (name, lname) VALUES (?, ?");
+      preparedStatement.setString(1,"Гриша");
+      preparedStatement.setString(2,"Головкин");
+      int resultSet = preparedStatement.executeUpdate();
+      cout.close();
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            connector.;
-
-        }
 
     }
 
