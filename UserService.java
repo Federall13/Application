@@ -7,11 +7,13 @@ public class UserService {
 
     public static void addUser() throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String name = reader.readLine();
-        String lname = reader.readLine();
         Connector connector = new Connector();
         Connection connectionUser = connector.getConneсtion();
-        PreparedStatement preparedStatement = connectionUser.prepareStatement("INSERT INTO user (name, lname) VALUES (?, ?");
+        PreparedStatement preparedStatement = connectionUser.prepareStatement("INSERT INTO user (name, lname) VALUES (?, ?)");
+        System.out.println("Введите имя");
+        String name = reader.readLine();
+        System.out.println("Введите фамилию");
+        String lname = reader.readLine();
         preparedStatement.setString(1, name);
         preparedStatement.setString(2, lname);
         int resultSet = preparedStatement.executeUpdate();

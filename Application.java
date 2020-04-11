@@ -3,10 +3,8 @@ import java.io.IOException;
 import java.sql.*;
 
 public class Application {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         Router.route();
-
+        UserService.addUser();
     }
-
-
 }
