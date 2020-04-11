@@ -18,7 +18,6 @@ public class Router {
             System.out.println(" 4. Вывести список всех пользователей - введите 4");
             System.out.println(" 5. Выйти - введите 5");
             choice = reader.readLine();
-
         } while (!strings.contains(choice));
 
         switch (choice) {

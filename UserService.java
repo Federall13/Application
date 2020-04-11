@@ -16,6 +16,7 @@ public class UserService {
         String lname = reader.readLine();
         preparedStatement.setString(1, name);
         preparedStatement.setString(2, lname);
+        preparedStatement.executeUpdate();
         connectionUser.close();
     }
 }
