@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class UserService {
 
-    public static void addUser() throws SQLException, IOException {
+    public void addUser() throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Connector connector = new Connector();
         Connection connectionUser = connector.getConneсtion();
