@@ -13,5 +13,6 @@ public class Connector {
             System.out.println("Соединение не удалось получить");
             return null;
         }
+        return null;
     }
 }
