@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Router {
    public static ArrayList<String> strings = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5"));
@@ -11,8 +10,6 @@ public class Router {
     public static void route() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String choice;
-
-
         do {
             System.out.println(" Здравствуйте! Выберите действие, которое хотите совершить:");
             System.out.println(" 1. Добавить пользователя - введите 1");
@@ -21,7 +18,6 @@ public class Router {
             System.out.println(" 4. Вывести список всех пользователей - введите 4");
             System.out.println(" 5. Выйти - введите 5");
             choice = reader.readLine();
-
         } while (!strings.contains(choice));
 
         switch (choice) {
@@ -47,7 +43,6 @@ public class Router {
             case "5":
                 System.exit(0);
                 break;
-
         }
     }
 
