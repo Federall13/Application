@@ -9,7 +9,10 @@ public class UserService {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Connector connector = new Connector();
         Connection dbConnection = connector.getConneсtion();
-        if (dbConnection != null) {
+        if (dbConnection == null) {
+            System.out.println("Нет соединения, отсутствует подключение к БД");
+            System.exit(0);
+        }
             PreparedStatement preparedStatement = dbConnection.prepareStatement("INSERT INTO user (name, lname) VALUES (?, ?)");
             System.out.println("Введите имя");
             String name = reader.readLine();
@@ -19,9 +22,5 @@ public class UserService {
             preparedStatement.setString(2, lname);
             preparedStatement.executeUpdate();
             dbConnection.close();
-        } else {
-            System.out.println("Нет соединения");
-            System.exit(0);
-        }
     }
 }
