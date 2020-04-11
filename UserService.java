@@ -8,15 +8,20 @@ public class UserService {
     public void addUser() throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Connector connector = new Connector();
-        Connection connectionUser = connector.getConneсtion();
-        PreparedStatement preparedStatement = connectionUser.prepareStatement("INSERT INTO user (name, lname) VALUES (?, ?)");
-        System.out.println("Введите имя");
-        String name = reader.readLine();
-        System.out.println("Введите фамилию");
-        String lname = reader.readLine();
-        preparedStatement.setString(1, name);
-        preparedStatement.setString(2, lname);
-        preparedStatement.executeUpdate();
-        connectionUser.close();
+        Connection dbConnection = connector.getConneсtion();
+        if (dbConnection != null) {
+            PreparedStatement preparedStatement = dbConnection.prepareStatement("INSERT INTO user (name, lname) VALUES (?, ?)");
+            System.out.println("Введите имя");
+            String name = reader.readLine();
+            System.out.println("Введите фамилию");
+            String lname = reader.readLine();
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, lname);
+            preparedStatement.executeUpdate();
+            dbConnection.close();
+        } else {
+            System.out.println("Нет соединения");
+            System.exit(0);
+        }
     }
 }
