@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class UserService {
 
-    public static void addUser() throws SQLException, IOException {
+    public void addUser() throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Connector connector = new Connector();
         Connection dbConnection = connector.getConneсtion();
@@ -24,7 +24,7 @@ public class UserService {
         dbConnection.close();
     }
 
-    public static void updateUser() throws SQLException, IOException {
+    public void updateUser() throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Connector connector = new Connector();
         Connection dbConnection = connector.getConneсtion();
@@ -47,7 +47,7 @@ public class UserService {
         dbConnection.close();
     }
 
-    public static void deleteUser() throws SQLException, IOException {
+    public void deleteUser() throws SQLException, IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Connector connector = new Connector();
         Connection dbConnection = connector.getConneсtion();
@@ -64,7 +64,7 @@ public class UserService {
         dbConnection.close();
     }
 
-    public static void printAllUser() throws SQLException {
+    public void printAllUser() throws SQLException {
         Connector connector = new Connector();
         try {
         Connection dbConnection = connector.getConneсtion();
