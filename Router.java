@@ -1,13 +1,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Router {
-   public static ArrayList<String> strings = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5"));
+    public static ArrayList<String> strings = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5"));
 
-    public static void route() throws IOException {
+    public static void route() throws IOException, SQLException {
+        UserService userService = new UserService();
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String choice;
         do {
@@ -22,28 +25,20 @@ public class Router {
 
         switch (choice) {
             case "1":
-                System.out.println("Введите имя ");
-                String firstName = reader.readLine();
-                System.out.println(" Введите фамилию ");
-                String lastName = reader.readLine();
+                userService.addUser();
                 break;
             case "2":
-                System.out.println(" Введите Имя человека, Фамилию которого хотите ихменить");
-                String editFirstName = reader.readLine();
-                System.out.println(" Введите новую фамилию ");
-                String editLastName = reader.readLine();
+                userService.updateUser();
                 break;
             case "3":
-                System.out.println(" Что бы удалить пользователя введите имя");
-                String deletionPerson = reader.readLine();
+                userService.deleteUser();
                 break;
             case "4":
-                System.out.println("Вывести список всех пользователей");
+                userService.printAllUser();
                 break;
             case "5":
                 System.exit(0);
                 break;
         }
     }
-
 }
