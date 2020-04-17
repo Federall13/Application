@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Router {
-   public static ArrayList<String> strings = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5"));
+    public static ArrayList<String> strings = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5"));
 
     public static void route() throws IOException, SQLException {
         UserService userService = new UserService();
@@ -34,12 +34,11 @@ public class Router {
                 userService.deleteUser();
                 break;
             case "4":
-               userService.printAllUser();
+                userService.printAllUser();
                 break;
             case "5":
                 System.exit(0);
                 break;
         }
     }
-
 }
